@@ -1,0 +1,21 @@
+﻿@model Product
+
+<h2>Update @Model.Name</h2>
+
+@using (Html.BeginForm("UpdateProductToDatabase", "Product", "Post"))
+{
+    <!-- Header displaying product id -->
+    <input asp-for="ProductID" type="hidden" value="@Model.ProductID" />
+
+    <!-- Label for Name followed by input form for new Name. -->
+    <label asp-for="Name" class="form-control">Name</label>
+    <input type="text" name="Name" class="form-control" value="@Model.Name"/>
+
+    <!-- Label for Price followed by input form for new Price. -->
+    <label asp-for="Price" class="form-control">@Model.Price</label>
+    <input type="number" step="0.01" name="Price" class="form-control" value="@Model.Price"/>
+
+    <!-- Submit button -->
+    <input type="submit" value="Update Product" class="btn btn-primary" />
+}
+    
